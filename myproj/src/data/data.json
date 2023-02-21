@@ -1,0 +1,12 @@
+{
+	"firstName": "Иван",
+	"lastName": "Иванов",
+	"address": {
+		"streetAddress": "Dnepr str., 101, ap.101",
+		"city": "Kyiv",
+		"postalCode": 101001
+	},
+	"phoneNumbers": [
+		"095 123-1234"
+	]
+}

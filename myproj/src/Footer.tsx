@@ -1,9 +1,8 @@
 import React from 'react';
 
-type FooterProps = {
-	copyright: string;
-}
-
-export const Footer: React.FC<FooterProps> = (props) => (
-	<footer>Footer {props.copyright}</footer>
+export const Footer: React.FC = (props) => (
+	<footer>
+		<h2>Some data</h2>
+		<p>Name:</p>
+	</footer>
 );

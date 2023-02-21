@@ -10,7 +10,7 @@ const user = {
 const App = () => (
 	<div className="App">
 		<h1>Good afternoon, {user.username}</h1>
-		<Footer copyright='C' />
+		<Footer />
 	</div>
 )
 
