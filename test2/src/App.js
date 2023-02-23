@@ -1,16 +1,32 @@
 import './App.css';
 
 
-const name = 'Neo';
-const elem = 'Hello ' + name + '. Its matrix.';
+const user2 = {
+	firstName: 'Olex',
+	lastName: 'Chirko',
+}
 
+// const elem0 = <img src={user.avatarUrl}></img>;
+const elem1 = <a href="https://www.reactjs.org">link here</a>
+const elem2 = (
+	<div>
+		<h2>Some text to explain</h2>
+		<p>Lorem ipsum dolorem</p>
+	</div>);
+
+
+function formatName(props) {
+	return props.firstName + " " + props.lastName;
+}
 
 function App() {
-  return (
-    <div className="App">
-		  <h1>{elem}</h1>
-    </div>
-  );
+	return (
+		<div className="App">
+			<h1>hello, {formatName(user2)}</h1>
+			{elem1}
+			{elem2}
+		</div>
+	);
 }
 
 export default App;
