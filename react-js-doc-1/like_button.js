@@ -1,6 +1,6 @@
 'use strict';
 
-const elem = React.createElement;
+const e = React.createElement;
 
 class LikeButton extends React.Component {
 	constructor(props) {
@@ -24,5 +24,5 @@ class LikeButton extends React.Component {
 document.querySelectorAll('.like_button_container').forEach(domContainer => {
 	const commentID = parseInt(domContainer.dataset.commentid, 10);
 	const root = ReactDOM.createRoot(domContainer);
-	root.render(elem(LikeButton, { commentID: commentID }));
+	root.render(e(LikeButton, { commentID: commentID }));
 });
