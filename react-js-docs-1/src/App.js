@@ -24,6 +24,34 @@ function Welcome(props) {
 }
 
 
+function Avatar(props) {
+	return (
+		<img
+			src="props.user.avatarUrl"
+			alt="props.user.name"
+		></img>
+	);
+}
+
+function Comment(props) {
+	return (
+		<div className="Comment">
+			<div className="UserInfo">
+				<Avatar user="props.author"/>
+				<div className="UserInfo-name">
+					{props.author.name}
+				</div>
+			</div>
+			<div className="Comment-text">
+				{props.text}
+			</div>
+			<div className="Comment-date">
+				{formatDate(props.date)}
+			</div>
+		</div>
+	);
+}
+
 
 function App() {
 	return (
@@ -34,6 +62,8 @@ function App() {
 			<Welcome name="Alice" />
 			<Welcome name="Bruce" />
 			<Welcome name="Jack" />
+
+
 
 		</div>
 	);
