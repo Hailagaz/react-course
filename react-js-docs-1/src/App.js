@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+// import React from 'react';
 
 // const user2 = {
 // 	firstName: 'Olex',
@@ -58,31 +58,38 @@ import React from 'react';
 // 	);
 // }
 
-class Cloak extends React.Component {
+class Clock extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {date: new Date()};
+		this.state = { date: new Date() };
+	}
+	componentDidMount() {
+		this.timerID = setInterval(() => { this.tick(), 1000 });
+	}
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+	tick() {
+		this.setState({ date: new Date() });
 	}
 	render() {
 		return (
 			<div>
-				<h1>Hello there</h1>
-				<p>Now is {this.state.date.toLocaleTimeString()}.</p>
+				<h1>Hello, world!</h1>
+				<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 			</div>
 		);
 	}
 }
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Cloak />);
+
 
 function App() {
 	return (
 		<div className="App">
 			{
-				<h1>Greetings</h1>
-				<Cloak/>
-
-
+				<div>
+					<Clock />
+				</div>
 
 
 				/* <h1>hello, {formatName(user2)}</h1>
@@ -93,8 +100,6 @@ function App() {
 				<Welcome name="Jack" />
 				<Comment /> */
 			}
-
-
 		</div>
 	);
 }
