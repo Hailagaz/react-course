@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1>ReactJS learn. Step 1</h1>
+	<!-- <h1>ReactJS learn. Step 1</h1>
 	<p>
 		This is the first comment.
 	<div class="like_button_container" data-commentid="1"></div>
@@ -23,15 +23,26 @@
 	<p>
 		This is the third comment.
 	<div class="like_button_container" data-commentid="3"></div>
-	</p>
+	</p> -->
 
 
-	<!-- Load react -->
+
+
+
+
+	<div id="root">
+	</div>
+
+
+	<!-- Load React support -->
 	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-	<!-- React component -->
-	<script src="like_button.js"></script>
+	<!-- Load JSX support -->
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+	<!-- Load React component -->
+	<script type="text/babel" src="index.js"></script>
 </body>
 
 </html>
