@@ -33,15 +33,21 @@ function Avatar(props) {
 	);
 }
 
+function UserInfo(props) {
+	return (
+		<div className="UserInfo">
+			<Avatar user={props.user} />
+			<div className="UserInfo-name">
+				{props.user.name}
+			</div>
+		</div>
+	);
+}
+
 function Comment(props) {
 	return (
 		<div className="Comment">
-			<div className="UserInfo">
-				<Avatar user="props.author"/>
-				<div className="UserInfo-name">
-					{props.author.name}
-				</div>
-			</div>
+			<UserInfo />
 			<div className="Comment-text">
 				{props.text}
 			</div>
@@ -62,7 +68,7 @@ function App() {
 			<Welcome name="Alice" />
 			<Welcome name="Bruce" />
 			<Welcome name="Jack" />
-
+			<Comment />
 
 
 		</div>
