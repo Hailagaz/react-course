@@ -23,11 +23,7 @@ function Welcome(props) {
 	return <h3>Welcome, {props.name}</h3>
 }
 
-class Welcome extends React.Component {
-	render() {
-		return <h1>Test hello, {this.props.name}</h1>;
-	}
-}
+
 
 function App() {
 	return (
@@ -35,7 +31,10 @@ function App() {
 			<h1>hello, {formatName(user2)}</h1>
 			{elem1}
 			{elem2}
-			<Welcome/>
+			<Welcome name="Alice" />
+			<Welcome name="Bruce" />
+			<Welcome name="Jack" />
+
 		</div>
 	);
 }
