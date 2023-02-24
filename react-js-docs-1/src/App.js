@@ -19,12 +19,23 @@ function formatName(props) {
 	return props.firstName + " " + props.lastName;
 }
 
+function Welcome(props) {
+	return <h3>Welcome, {props.name}</h3>
+}
+
+class Welcome extends React.Component {
+	render() {
+		return <h1>Test hello, {this.props.name}</h1>;
+	}
+}
+
 function App() {
 	return (
 		<div className="App">
 			<h1>hello, {formatName(user2)}</h1>
 			{elem1}
 			{elem2}
+			<Welcome/>
 		</div>
 	);
 }
