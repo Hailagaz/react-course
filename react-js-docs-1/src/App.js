@@ -47,7 +47,7 @@ function UserInfo(props) {
 function Comment(props) {
 	return (
 		<div className="Comment">
-			<UserInfo />
+			<UserInfo user={props.author} />
 			<div className="Comment-text">
 				{props.text}
 			</div>
