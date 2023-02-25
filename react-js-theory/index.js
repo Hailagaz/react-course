@@ -90,4 +90,21 @@ class Toggle extends React.Component {
 		// Эта привязка обязательна для работы `this` в колбэке.
 		this.handleClick = this.handleClick.bind(this);
 	}
+
+	handleClick() {
+		this.setState(prevState => ({
+			isToggleOn: !prevState.isToggleOn
+		}));
+	}
+
+	render() {
+		return (
+			<button onClick={this.handleClick}>
+				{this.state.isToggleOn ? 'Turn on' : 'Turn off'}
+			</button>
+		);
+	}
 }
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Toggle />);
