@@ -273,3 +273,49 @@ function NumberList(props) {
 const numbers = [1, 2, 3, 4, 5];
 const root6 = ReactDOM.createRoot(document.getElementById('root6'));
 root6.render(<NumberList numbers={numbers} />);
+
+
+
+
+
+
+
+
+function Blog(props) {
+	const sidebar = (
+		<ul>
+			{props.posts.map((post) =>
+				<li key={post.id}>
+					{post.title}
+				</li>
+			)}
+		</ul>
+	);
+	const content = props.posts.map((post) =>
+		<div key={post.id}>
+			<h3>{post.title}</h3>
+			<p>{post.content}</p>
+		</div>
+	);
+	return (
+		<div>
+			{sidebar}
+			<hr />
+			{content}
+		</div>
+	);
+}
+
+const posts = [
+	{
+		id: 1, title: 'Привет, мир',
+		content: 'Добро пожаловать в документацию React!'
+	},
+	{
+		id: 2, title: 'Установка',
+		content: 'React можно установить из npm.'
+	}
+];
+
+const root7 = ReactDOM.createRoot(document.getElementById('root7'));
+root7.render(<Blog posts={posts} />);
