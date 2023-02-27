@@ -119,69 +119,90 @@
 
 
 
-function UserGreeting(props) {
-	return (<h1>Welcome back, user!</h1>);
-}
+// function UserGreeting(props) {
+// 	return (<h1>Welcome back, user!</h1>);
+// }
 
-function GuestGreeting(props) {
-	return (<h1>Hello there, guest</h1>);
-}
+// function GuestGreeting(props) {
+// 	return (<h1>Hello there, guest</h1>);
+// }
 
-function Greeting(props) {
-	const isLoggedIn = props.isLoggedIn;
-	if (isLoggedIn) {
-		return <UserGreeting />
-	}
-	return <GuestGreeting />
-}
+// function Greeting(props) {
+// 	const isLoggedIn = props.isLoggedIn;
+// 	if (isLoggedIn) {
+// 		return <UserGreeting />
+// 	}
+// 	return <GuestGreeting />
+// }
+
+// // const root = ReactDOM.createRoot(document.getElementById('root'));
+// // root.render(<Greeting isLoggedIn={true} />);
+
+
+// function LoginButton(props) {
+// 	return (
+// 		<button onClick={props.onClick}>Log in</button>
+// 	);
+// }
+
+// function LogoutButton(props) {
+// 	return (
+// 		<button onClick={props.onClick}>Log out</button>
+// 	);
+// }
+
+// class LoginControl extends React.Component {
+// 	constructor(props) {
+// 		super(props);
+// 		this.handleLoginClick = this.handleLoginClick.bind(this);
+// 		this.handleLogoutClick = this.handleLogoutClick.bind(this);
+// 		this.state = { isLoggedIn: false };
+// 	}
+
+// 	handleLoginClick() {
+// 		this.setState({isLoggedIn: true});
+// 	}
+
+// 	handleLogoutClick() {
+// 		this.setState({ isLoggedIn: false });
+// 	}
+// 	render() {
+// 		const isLoggedIn = this.state.isLoggedIn;
+// 		let button;
+// 		if (isLoggedIn) {
+// 			button = <LogoutButton onClick={this.handleLogoutClick} />
+// 		} else {
+// 			button = <LoginButton onClick={this.handleLoginClick} />
+// 		}
+// 		return (
+// 			<div>
+// 				<Greeting isLoggedIn={isLoggedIn} />
+// 				{button}
+// 			</div>
+// 		);
+// 	}
+// }
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<Greeting isLoggedIn={true} />);
+// root.render(<LoginControl />);
 
 
-function LoginButton(props) {
+
+
+
+
+function MailBox(props) {
+	const unreadMessages = props.unreadMessages;
 	return (
-		<button onClick={props.onClick}>Log in</button>
+		<div>
+			<h1>Hello!</h1>
+			{unreadMessages.length > 0 &&
+				<h2>You have {unreadMessages.length} unread messages</h2>}
+		</div>
 	);
 }
 
-function LogoutButton(props) {
-	return (
-		<button onClick={props.onClick}>Log out</button>
-	);
-}
-
-class LoginControl extends React.Component {
-	constructor(props) {
-		super(props);
-		this.handleLoginClick = this.handleLoginClick.bind(this);
-		this.handleLogoutClick = this.handleLogoutClick.bind(this);
-		this.state = { isLoggedIn: false };
-	}
-
-	handleLoginClick() {
-		this.setState({isLoggedIn: true});
-	}
-
-	handleLogoutClick() {
-		this.setState({ isLoggedIn: false });
-	}
-	render() {
-		const isLoggedIn = this.state.isLoggedIn;
-		let button;
-		if (isLoggedIn) {
-			button = <LogoutButton onClick={this.handleLogoutClick} />
-		} else {
-			button = <LoginButton onClick={this.handleLoginClick} />
-		}
-		return (
-			<div>
-				<Greeting isLoggedIn={isLoggedIn} />
-				{button}
-			</div>
-		);
-	}
-}
+const messages = ['React', 'Learn React', 'Hard learn React'];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<LoginControl />);
+root.render(<MailBox unreadMessages={messages} />);
