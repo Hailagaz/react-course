@@ -119,21 +119,34 @@
 
 
 
-function UserGreeting(props) {
-	return (<h1>Welcome back, user!</h1>);
+// function UserGreeting(props) {
+// 	return (<h1>Welcome back, user!</h1>);
+// }
+
+// function GuestGreeting(props) {
+// 	return (<h1>Hello there, guest</h1>);
+// }
+
+// function Greeting(props) {
+// 	const isLoggedIn = props.isLoggedIn;
+// 	if (isLoggedIn) {
+// 		return <UserGreeting />
+// 	}
+// 	return <GuestGreeting />
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Greeting isLoggedIn={true} />);
+
+
+function LoginButton(props) {
+	return (
+		<button onClick={props.onClick}>Log in</button>
+	);
 }
 
-function GuestGreeting(props) {
-	return (<h1>Hello there, guest</h1>);
+function LogoutButton(props) {
+	return (
+		<button onClick={props.onClick}>Log out</button>
+	);
 }
-
-function Greeting(props) {
-	const isLoggedIn = props.isLoggedIn;
-	if (isLoggedIn) {
-		return <UserGreeting />
-	}
-	return <GuestGreeting />
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Greeting isLoggedIn={true} />);
