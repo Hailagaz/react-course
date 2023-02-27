@@ -260,12 +260,13 @@ function ListItem(props) {
 
 function NumberList(props) {
 	const numbers = props.numbers;
-	const listItems = numbers.map((number) =>
-		<ListItem key={number.toString()} value={number} />
-	);
 	return (
 		<ul>
-			{listItems}
+			{numbers.map((number) =>
+				<ListItem
+					key={number.toString()}
+					value={number} />
+			)}
 		</ul>
 	);
 }
@@ -308,11 +309,13 @@ function Blog(props) {
 
 const posts = [
 	{
-		id: 1, title: 'Привет, мир',
+		id: 1,
+		title: 'Привет, мир',
 		content: 'Добро пожаловать в документацию React!'
 	},
 	{
-		id: 2, title: 'Установка',
+		id: 2,
+		title: 'Установка',
 		content: 'React можно установить из npm.'
 	}
 ];
