@@ -160,7 +160,7 @@ class LoginControl extends React.Component {
 	}
 
 	handleLoginClick() {
-		this.setState({isLoggedIn: true});
+		this.setState({ isLoggedIn: true });
 	}
 
 	handleLogoutClick() {
@@ -254,15 +254,19 @@ root5.render(<Page />);
 
 
 
+function ListItem(props) {
+	return <li>{props.value}</li>;
+}
+
 function NumberList(props) {
 	const numbers = props.numbers;
 	const listItems = numbers.map((number) =>
-		<li key={number.toString()}>
-			{number}
-		</li>
+		<ListItem key={number.toString()} value={number} />
 	);
 	return (
-		<ul>{listItems}</ul>
+		<ul>
+			{listItems}
+		</ul>
 	);
 }
 
