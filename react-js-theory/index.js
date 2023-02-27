@@ -191,18 +191,60 @@
 
 
 
-function MailBox(props) {
-	const unreadMessages = props.unreadMessages;
+// function MailBox(props) {
+// 	const unreadMessages = props.unreadMessages;
+// 	return (
+// 		<div>
+// 			<h1>Hello!</h1>
+// 			{unreadMessages.length > 0 &&
+// 				<h2>You have {unreadMessages.length} unread messages</h2>
+// 			}
+// 		</div>
+// 	);
+// }
+
+// const messages = ['React', 'Learn React', 'Hard learn React'];
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<MailBox unreadMessages={messages} />);
+
+
+
+
+
+
+function WarningBanner(props) {
+	if (!props.warn) return null;
 	return (
-		<div>
-			<h1>Hello!</h1>
-			{unreadMessages.length > 0 &&
-				<h2>You have {unreadMessages.length} unread messages</h2>}
+		<div className="warning">
+			Attention. It is warning!
 		</div>
 	);
 }
 
-const messages = ['React', 'Learn React', 'Hard learn React'];
+class Page extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { showWarning: true };
+		this.handleToggleClick = this.handleToggleClick.bind(this);
+	}
+
+	handleToggleClick() {
+		this.setState(state => ({
+			showWarning: !state.showWarning
+		}));
+	}
+	render() {
+		return (
+			<div>
+				<WarningBanner warn={this.state.showWarning} />
+				<button onClick={this.handleToggleClick}>
+					{this.state.showWarning ? 'Hide' : 'Open'}
+				</button>
+			</div>
+		);
+	};
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MailBox unreadMessages={messages} />);
+root.render(<Page/>);
