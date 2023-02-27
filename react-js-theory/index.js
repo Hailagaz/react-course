@@ -1,31 +1,31 @@
 // "use strict"
 
-// class Clock extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 		this.state = { date: new Date() };
-// 	}
-// 	componentDidMount() {
-// 		this.timerID = setInterval(() => { this.tick(), 1000 });
-// 	}
-// 	componentWillUnmount() {
-// 		clearInterval(this.timerID);
-// 	}
-// 	tick() {
-// 		this.setState({date: new Date()});
-// 	}
-// 	render() {
-// 		return (
-// 			<div>
-// 				<h1>Hello, world!</h1>
-// 				<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-// 			</div>
-// 		);
-// 	}
-// }
+class Clock extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { date: new Date() };
+	}
+	componentDidMount() {
+		this.timerID = setInterval(() => { this.tick(), 1000 });
+	}
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+	tick() {
+		this.setState({date: new Date()});
+	}
+	render() {
+		return (
+			<div>
+				<h1>Hello, world!</h1>
+				<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+			</div>
+		);
+	}
+}
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<Clock />);
+const root1 = ReactDOM.createRoot(document.getElementById('root1'));
+root1.render(<Clock />);
 
 
 
@@ -119,94 +119,94 @@
 
 
 
-// function UserGreeting(props) {
-// 	return (<h1>Welcome back, user!</h1>);
-// }
+function UserGreeting(props) {
+	return (<h1>Welcome back, user!</h1>);
+}
 
-// function GuestGreeting(props) {
-// 	return (<h1>Hello there, guest</h1>);
-// }
+function GuestGreeting(props) {
+	return (<h1>Hello there, guest</h1>);
+}
 
-// function Greeting(props) {
-// 	const isLoggedIn = props.isLoggedIn;
-// 	if (isLoggedIn) {
-// 		return <UserGreeting />
-// 	}
-// 	return <GuestGreeting />
-// }
-
-// // const root = ReactDOM.createRoot(document.getElementById('root'));
-// // root.render(<Greeting isLoggedIn={true} />);
-
-
-// function LoginButton(props) {
-// 	return (
-// 		<button onClick={props.onClick}>Log in</button>
-// 	);
-// }
-
-// function LogoutButton(props) {
-// 	return (
-// 		<button onClick={props.onClick}>Log out</button>
-// 	);
-// }
-
-// class LoginControl extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 		this.handleLoginClick = this.handleLoginClick.bind(this);
-// 		this.handleLogoutClick = this.handleLogoutClick.bind(this);
-// 		this.state = { isLoggedIn: false };
-// 	}
-
-// 	handleLoginClick() {
-// 		this.setState({isLoggedIn: true});
-// 	}
-
-// 	handleLogoutClick() {
-// 		this.setState({ isLoggedIn: false });
-// 	}
-// 	render() {
-// 		const isLoggedIn = this.state.isLoggedIn;
-// 		let button;
-// 		if (isLoggedIn) {
-// 			button = <LogoutButton onClick={this.handleLogoutClick} />
-// 		} else {
-// 			button = <LoginButton onClick={this.handleLoginClick} />
-// 		}
-// 		return (
-// 			<div>
-// 				<Greeting isLoggedIn={isLoggedIn} />
-// 				{button}
-// 			</div>
-// 		);
-// 	}
-// }
+function Greeting(props) {
+	const isLoggedIn = props.isLoggedIn;
+	if (isLoggedIn) {
+		return <UserGreeting />
+	}
+	return <GuestGreeting />
+}
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<LoginControl />);
+// root.render(<Greeting isLoggedIn={true} />);
+
+
+function LoginButton(props) {
+	return (
+		<button onClick={props.onClick}>Log in</button>
+	);
+}
+
+function LogoutButton(props) {
+	return (
+		<button onClick={props.onClick}>Log out</button>
+	);
+}
+
+class LoginControl extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleLoginClick = this.handleLoginClick.bind(this);
+		this.handleLogoutClick = this.handleLogoutClick.bind(this);
+		this.state = { isLoggedIn: false };
+	}
+
+	handleLoginClick() {
+		this.setState({isLoggedIn: true});
+	}
+
+	handleLogoutClick() {
+		this.setState({ isLoggedIn: false });
+	}
+	render() {
+		const isLoggedIn = this.state.isLoggedIn;
+		let button;
+		if (isLoggedIn) {
+			button = <LogoutButton onClick={this.handleLogoutClick} />
+		} else {
+			button = <LoginButton onClick={this.handleLoginClick} />
+		}
+		return (
+			<div>
+				<Greeting isLoggedIn={isLoggedIn} />
+				{button}
+			</div>
+		);
+	}
+}
+
+const root2 = ReactDOM.createRoot(document.getElementById('root2'));
+root2.render(<LoginControl />);
 
 
 
 
 
 
-// function MailBox(props) {
-// 	const unreadMessages = props.unreadMessages;
-// 	return (
-// 		<div>
-// 			<h1>Hello!</h1>
-// 			{unreadMessages.length > 0 &&
-// 				<h2>You have {unreadMessages.length} unread messages</h2>
-// 			}
-// 		</div>
-// 	);
-// }
+function MailBox(props) {
+	const unreadMessages = props.unreadMessages;
+	return (
+		<div>
+			<h1>Hello!</h1>
+			{unreadMessages.length > 0 &&
+				<h2>You have {unreadMessages.length} unread messages</h2>
+			}
+		</div>
+	);
+}
 
-// const messages = ['React', 'Learn React', 'Hard learn React'];
+const messages = ['React', 'Learn React', 'Hard learn React'];
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<MailBox unreadMessages={messages} />);
+const root3 = ReactDOM.createRoot(document.getElementById('root3'));
+root3.render(<MailBox unreadMessages={messages} />);
 
 
 
@@ -246,5 +246,5 @@ class Page extends React.Component {
 	};
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Page/>);
+const root4 = ReactDOM.createRoot(document.getElementById('root4'));
+root4.render(<Page/>);
