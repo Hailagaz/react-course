@@ -1,118 +1,118 @@
 // "use strict"
 
-class Clock extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { date: new Date() };
-	}
-	componentDidMount() {
-		this.timerID = setInterval(() => { this.tick(), 1000 });
-	}
-	componentWillUnmount() {
-		clearInterval(this.timerID);
-	}
-	tick() {
-		this.setState({date: new Date()});
-	}
-	render() {
-		return (
-			<div>
-				<h1>Hello, world!</h1>
-				<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-			</div>
-		);
-	}
-}
-
-const root1 = ReactDOM.createRoot(document.getElementById('root1'));
-root1.render(<Clock />);
-
-
-
-
-
-// function FormattedDate(props) {
-// 	return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
-// }
-
 // class Clock extends React.Component {
 // 	constructor(props) {
 // 		super(props);
 // 		this.state = { date: new Date() };
 // 	}
-
 // 	componentDidMount() {
-// 		this.timerID = setInterval(
-// 			() => this.tick(),
-// 			1000
-// 		);
+// 		this.timerID = setInterval(() => { this.tick(), 1000 });
 // 	}
-
 // 	componentWillUnmount() {
 // 		clearInterval(this.timerID);
 // 	}
-
 // 	tick() {
-// 		this.setState({
-// 			date: new Date()
-// 		});
+// 		this.setState({date: new Date()});
 // 	}
-
 // 	render() {
 // 		return (
 // 			<div>
 // 				<h1>Hello, world!</h1>
-// 				<FormattedDate date={this.state.date} />
+// 				<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 // 			</div>
 // 		);
 // 	}
 // }
 
-// function App() {
-// 	return (
-// 		<div>
-// 			<Clock />
-// 			<Clock />
-// 			<Clock />
-// 		</div>
-// 	);
-// }
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
+// const root1 = ReactDOM.createRoot(document.getElementById('root1'));
+// root1.render(<Clock />);
 
 
 
 
 
+function FormattedDate(props) {
+	return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
+}
+
+class Clock extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { date: new Date() };
+	}
+
+	componentDidMount() {
+		this.timerID = setInterval(
+			() => this.tick(),
+			1000
+		);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+
+	tick() {
+		this.setState({
+			date: new Date()
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				<h1>Timer</h1>
+				<FormattedDate date={this.state.date} />
+			</div>
+		);
+	}
+}
+
+function App() {
+	return (
+		<div>
+			<Clock />
+			<Clock />
+			<Clock />
+		</div>
+	);
+}
+
+const root1 = ReactDOM.createRoot(document.getElementById('root1'));
+root1.render(<App />);
 
 
 
-// class Toggle extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 		this.state = { isToggleOn: true };
-// 		// Эта привязка обязательна для работы `this` в колбэке.
-// 		this.handleClick = this.handleClick.bind(this);
-// 	}
 
-// 	handleClick() {
-// 		this.setState(prevState => ({
-// 			isToggleOn: !prevState.isToggleOn
-// 		}));
-// 	}
 
-// 	render() {
-// 		return (
-// 			<button onClick={this.handleClick}>
-// 				{this.state.isToggleOn ? 'Button turned on' : 'Button turned off'}
-// 			</button>
-// 		);
-// 	}
-// }
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<Toggle />);
+
+
+class Toggle extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { isToggleOn: true };
+		// Эта привязка обязательна для работы `this` в колбэке.
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick() {
+		this.setState(prevState => ({
+			isToggleOn: !prevState.isToggleOn
+		}));
+	}
+
+	render() {
+		return (
+			<button onClick={this.handleClick}>
+				{this.state.isToggleOn ? 'Button turned on' : 'Button turned off'}
+			</button>
+		);
+	}
+}
+
+const root2 = ReactDOM.createRoot(document.getElementById('root2'));
+root2.render(<Toggle />);
 
 
 
@@ -183,8 +183,8 @@ class LoginControl extends React.Component {
 	}
 }
 
-const root2 = ReactDOM.createRoot(document.getElementById('root2'));
-root2.render(<LoginControl />);
+const root3 = ReactDOM.createRoot(document.getElementById('root3'));
+root3.render(<LoginControl />);
 
 
 
@@ -205,8 +205,8 @@ function MailBox(props) {
 
 const messages = ['React', 'Learn React', 'Hard learn React'];
 
-const root3 = ReactDOM.createRoot(document.getElementById('root3'));
-root3.render(<MailBox unreadMessages={messages} />);
+const root4 = ReactDOM.createRoot(document.getElementById('root4'));
+root4.render(<MailBox unreadMessages={messages} />);
 
 
 
@@ -217,7 +217,7 @@ function WarningBanner(props) {
 	if (!props.warn) return null;
 	return (
 		<div className="warning">
-			Attention. It is warning!
+			<h1>Attention. It is warning!</h1>
 		</div>
 	);
 }
@@ -246,5 +246,5 @@ class Page extends React.Component {
 	};
 }
 
-const root4 = ReactDOM.createRoot(document.getElementById('root4'));
-root4.render(<Page/>);
+const root5 = ReactDOM.createRoot(document.getElementById('root5'));
+root5.render(<Page/>);
