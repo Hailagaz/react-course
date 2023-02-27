@@ -247,4 +247,23 @@ class Page extends React.Component {
 }
 
 const root5 = ReactDOM.createRoot(document.getElementById('root5'));
-root5.render(<Page/>);
+root5.render(<Page />);
+
+
+
+
+
+
+function NumberList(props) {
+	const numbers = props.numbers;
+	const listItems = numbers.map((number) =>
+		<li>{number}</li>
+	);
+	return (
+		<ul>{listItems}</ul>
+	);
+}
+
+const numbers = [1, 2, 3, 4, 5];
+const root6 = ReactDOM.createRoot(document.getElementById('root6'));
+root6.render(<NumberList numbers={numbers} />);
