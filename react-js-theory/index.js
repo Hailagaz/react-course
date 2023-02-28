@@ -322,3 +322,41 @@ const posts = [
 
 const root7 = ReactDOM.createRoot(document.getElementById('root7'));
 root7.render(<Blog posts={posts} />);
+
+
+
+
+
+// Forms
+
+class NameForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { value: '' };
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+	handleSubmit(event) {
+		alert('Sent name: ' + this.state.value);
+		event.preventDefault();
+	}
+
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<label>
+					Name:
+					<input type="text" value={this.state.value} onChange={this.handleChange}></input>
+				</label>
+				<input type="submit" value="Send"></input>
+			</form>
+		);
+	}
+}
+
+const root8 = ReactDOM.createRoot(document.getElementById('root8'));
+root8.render(<NameForm />);
