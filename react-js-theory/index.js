@@ -360,3 +360,15 @@ class NameForm extends React.Component {
 
 const root8 = ReactDOM.createRoot(document.getElementById('root8'));
 root8.render(<NameForm />);
+
+
+
+
+
+
+
+
+class EssayForm extends React.Component {
+	
+}
+
