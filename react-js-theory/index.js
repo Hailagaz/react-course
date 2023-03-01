@@ -402,4 +402,6 @@ class EssayForm extends React.Component {
 }
 
 const root9 = ReactDOM.createRoot(document.getElementById('root9'));
-root9.render(<EssayForm/>);
+root9.render(<EssayForm />);
+
+// Stop on Forms - tag select
