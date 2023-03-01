@@ -369,6 +369,23 @@ root8.render(<NameForm />);
 
 
 class EssayForm extends React.Component {
-	
+	constructor(props) {
+		super(props);
+		this.state = {
+			value: 'Please write essay about your favourite DOM element'
+		};
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+
+	handleSubmit(event) {
+		alert('Essay was sent:' + this.state.value);
+		event.preventDefault();
+	}
 }
 
