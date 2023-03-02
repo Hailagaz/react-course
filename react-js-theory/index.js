@@ -425,6 +425,26 @@ class FlavorForm extends React.Component {
 	}
 
 	handleSubmit(event) {
-
+		alert('Your favourite flavour is: ' + this.state.value);
+		event.preventDefault();
+	}
+	
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<label>
+					Choose your favourite flavour:
+					<select value={this.state.value} onChange={this.handleChange}>
+						<option value="grapefruit">Grapefruit</option>
+						<option value="apple">Apple</option>
+						<option value="coconut">Coconut</option>
+						<option value="orange">Orange</option>
+						<option value="mango">Mango</option>
+						<option value="lime">Lime</option>
+					</select>
+				</label>
+				<input type="submit" value="Send"/>
+			</form>
+		);
 	}
 }
