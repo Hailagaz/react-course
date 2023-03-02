@@ -421,7 +421,7 @@ class FlavorForm extends React.Component {
 	}
 
 	handleChange(event) {
-		this.setState({value: this.target.value});
+		this.setState({value: event.target.value});
 	}
 
 	handleSubmit(event) {
@@ -448,3 +448,6 @@ class FlavorForm extends React.Component {
 		);
 	}
 }
+
+const root10 = ReactDOM.createRoot(document.getElementById('root10'));
+root10.render(<FlavorForm />);
