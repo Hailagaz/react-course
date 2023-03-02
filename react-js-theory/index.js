@@ -404,4 +404,27 @@ class EssayForm extends React.Component {
 const root9 = ReactDOM.createRoot(document.getElementById('root9'));
 root9.render(<EssayForm />);
 
-// Stop on Forms - tag select
+
+
+
+
+
+
+
+class FlavorForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { value: 'coconut' };
+		
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({value: this.target.value});
+	}
+
+	handleSubmit(event) {
+
+	}
+}
