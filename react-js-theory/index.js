@@ -508,3 +508,6 @@ class Reservation extends React.Component {
 		);
 	}
 }
+
+const root11 = ReactDOM.createRoot(document.getElementById('root11'));
+root11.render(<Reservation />);
