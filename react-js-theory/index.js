@@ -451,3 +451,60 @@ class FlavorForm extends React.Component {
 
 const root10 = ReactDOM.createRoot(document.getElementById('root10'));
 root10.render(<FlavorForm />);
+
+
+
+
+
+
+
+// Forms - file load - non controlled React-component
+
+// Forms - input
+
+class Reservation extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isGoing: true,
+			numberOfGuests: 2,
+		};
+
+		this.handleInputChange = this.handleInputChange.bind(this);
+	}
+	handleInputChange(event) {
+		const target = event.target;
+		const value = target.type === 'checkbox' ? target.checked : target.value;
+		const name = target.name;
+
+		this.setState({
+			[name]: value
+		});
+	}
+	render() {
+		return (
+			<form>
+				<label>
+					Will go: 
+					<input 
+						name='isGoing'
+						type='checkbox'
+						checked={this.state.isGoing}
+						onChange={this.handleInputChange}
+					/>
+				</label>
+				<br />
+				<label>
+					Amount of guests: 
+					<input
+						name='numberOfGuests'
+						type='number'
+						value={this.state.numberOfGuests}
+						onChange={this.handleInputChange}
+					/>
+				</label>
+					
+			</form>
+		);
+	}
+}
