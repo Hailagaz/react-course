@@ -520,12 +520,10 @@ root11.render(<Reservation />);
 
 
 
-function BoilingVerdict(props) {
-	if (props.celsius >= 100) {
-		return <p>Water will boil</p>
-	}
-	return <p>Water will not boil</p>
-}
+const scaleNames = {
+	c: 'Celsius',
+	f: 'Fahrenheit'
+};
 
 function toCelsius(fahrenheit) {
 	return (fahrenheit - 32) * 5 / 9;
@@ -535,7 +533,7 @@ function toFahrenheit(celsius) {
 	return (celsius * 9 / 5) + 32;
 }
 
-function TryConvert(temperature, convert) {
+function tryConvert(temperature, convert) {
 	const input = parseFloat(temperature);
 	if (Number.isNaN(input)) {
 		return '';
@@ -545,20 +543,21 @@ function TryConvert(temperature, convert) {
 	return rounded.toString();
 }
 
-const scaleNames = {
-	c: 'Celsius',
-	f: 'Fahrenheit'
+function BoilingVerdict(props) {
+	if (props.celsius >= 100) {
+		return <p>The water will boil.</p>;
+	}
+	return <p>The water will not boil.</p>;
 }
 
 class TemperatureInput extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
-		this.state = { temperature: '' };
 	}
 
-	handleChange(event) {
-		this.props.onTemperatureChange(event.target.value);
+	handleChange(e) {
+		this.props.onTemperatureChange(e.target.value);
 	}
 
 	render() {
@@ -566,11 +565,9 @@ class TemperatureInput extends React.Component {
 		const scale = this.props.scale;
 		return (
 			<fieldset>
-				<legend>Enter temperature in degrees of {scaleNames[scale]}: </legend>
-				<input
-					onChange={this.handleChange}
-					value={temperature}
-				/>
+				<legend>Enter temperature in {scaleNames[scale]}:</legend>
+				<input value={temperature}
+					onChange={this.handleChange} />
 			</fieldset>
 		);
 	}
