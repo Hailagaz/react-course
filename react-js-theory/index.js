@@ -537,6 +537,7 @@ class Calculator extends React.Component {
 	}
 
 	render() {
+		const temperature = this.state.temperature;
 		return (
 			<fieldset>
 				<legend>Write temperature in celsius degrees</legend>
