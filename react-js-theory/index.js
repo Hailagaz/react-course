@@ -518,6 +518,8 @@ root11.render(<Reservation />);
 
 
 
+
+
 function BoilingVerdict(props) {
 	if (props.celsius >= 100) {
 		return <p>Water will boil</p>
@@ -525,6 +527,23 @@ function BoilingVerdict(props) {
 	return <p>Water will not boil</p>
 }
 
+function toCelsius(fahrenheit) {
+	return (fahrenheit - 32) * 5 / 9;
+}
+
+function toFahrenheit(celsius) {
+	return (celsius * 9 / 5) + 32;
+}
+
+function TryConvert(temperature, convert) {
+	const input = parseFloat(temperature);
+	if (Number.isNaN(input)) {
+		return '';
+	}
+	const output = convert(input);
+	const rounded = Math.round(output * 1000) / 1000;
+	return rounded.toString();
+}
 
 const scaleNames = {
 	c: 'Celsius',
@@ -594,27 +613,7 @@ class Calculator extends React.Component {
 			</div>
 		);
 	}
-
 }
 
 const root12 = ReactDOM.createRoot(document.getElementById('root12'));
 root12.render(<Calculator />);
-
-
-function toCelsius(fahrenheit) {
-	return (fahrenheit - 32) * 5 / 9;
-}
-
-function toFahrenheit(celsius) {
-	return (celsius * 9 / 5) + 32;
-}
-
-function TryConvert(temperature, convert) {
-	const input = parseFloat(temperature);
-	if (Number.isNaN(input)) {
-		return '';
-	}
-	const output = convert(input);
-	const rounded = Math.round(output * 1000) / 1000;
-	return rounded.toString();
-}
