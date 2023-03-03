@@ -558,7 +558,6 @@ class TemperatureInput extends React.Component {
 }
 
 class Calculator extends React.Component {
-
 	render() {
 		return (
 			<div>
