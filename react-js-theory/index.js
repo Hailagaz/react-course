@@ -626,6 +626,79 @@ root12.render(<Calculator />);
 
 
 
+// function FancyBorder(props) {
+// 	return (
+// 		<div className={'FancyBorder FancyBorder-' + props.color}>
+// 			{props.children}
+// 		</div>
+// 	);
+// }
+
+// function WelcomeDialog() {
+// 	return (
+// 		<FancyBorder color="blue">
+// 			<h1 className="Dialog-title">
+// 				Welcome
+// 			</h1>
+// 			<p className="Dialog-message">
+// 				Thank you for visiting our spacecraft!
+// 			</p>
+// 		</FancyBorder>
+// 	);
+// }
+
+// const root13 = ReactDOM.createRoot(document.getElementById('root13'));
+// root13.render(<WelcomeDialog />);
+
+
+
+
+
+
+
+
+
+
+
+// function Contacts() {
+// 	return <div className="Contacts" />;
+// }
+
+// function Chat() {
+// 	return <div className="Chat" />;
+// }
+
+// function SplitPane(props) {
+// 	return (
+// 		<div className="SplitPane">
+// 			<div className="SplitPane-left">
+// 				{props.left}
+// 			</div>
+// 			<div className="SplitPane-right">
+// 				{props.right}
+// 			</div>
+// 		</div>
+// 	);
+// }
+
+// function App() {
+// 	return (
+// 		<SplitPane 
+// 			left={<Contacts />}
+// 			right={<Chat/>}
+// 		/>
+		
+// 	);
+// }
+
+// const root14 = ReactDOM.createRoot(document.getElementById('root14'));
+// root14.render(<App />);
+
+
+
+
+
+
 function FancyBorder(props) {
 	return (
 		<div className={'FancyBorder FancyBorder-' + props.color}>
@@ -634,62 +707,27 @@ function FancyBorder(props) {
 	);
 }
 
-function WelcomeDialog() {
+function Dialog(props) {
 	return (
-		<FancyBorder color="blue">
-			<h1 className="Dialog-title">
-				Welcome
+		<FancyBorder color='blue'>
+			<h1 className='Dialog-title'>
+				{props.title}
 			</h1>
-			<p className="Dialog-message">
-				Thank you for visiting our spacecraft!
+			<p className='Dialog-message'>
+				{props.message}
 			</p>
 		</FancyBorder>
 	);
 }
 
-const root13 = ReactDOM.createRoot(document.getElementById('root13'));
-root13.render(<WelcomeDialog />);
-
-
-
-
-
-
-
-
-
-
-
-function Contacts() {
-	return <div className="Contacts" />;
-}
-
-function Chat() {
-	return <div className="Chat" />;
-}
-
-function SplitPane(props) {
+function WelcomeDialog() {
 	return (
-		<div className="SplitPane">
-			<div className="SplitPane-left">
-				{props.left}
-			</div>
-			<div className="SplitPane-right">
-				{props.right}
-			</div>
-		</div>
-	);
-}
-
-function App() {
-	return (
-		<SplitPane 
-			left={<Contacts />}
-			right={<Chat/>}
+		<Dialog
+			title='Welcome'
+			message='Thank you for visiting'
 		/>
-		
 	);
 }
 
-const root14 = ReactDOM.createRoot(document.getElementById('root14'));
-root14.render(<App />);
+const root13 = ReactDOM.createRoot(document.getElementById('root13'));
+root13.render(<WelcomeDialog/>);
