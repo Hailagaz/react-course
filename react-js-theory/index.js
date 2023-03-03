@@ -529,7 +529,7 @@ class Calculator extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
-		this.state = { temperature: '' };
+		this.state = { temperature: '0' };
 	}
 
 	handleChange(event) {
