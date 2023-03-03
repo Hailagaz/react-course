@@ -730,4 +730,66 @@ function WelcomeDialog() {
 }
 
 const root13 = ReactDOM.createRoot(document.getElementById('root13'));
-root13.render(<WelcomeDialog/>);
+root13.render(<WelcomeDialog />);
+
+
+
+
+
+
+
+
+
+
+
+function Dialog(props) {
+	return (
+		<FancyBorder>
+			<h1 className="Dialog-title">
+				{props.title}
+			</h1>
+			<p className="Dialog-message">
+				{props.message}
+			</p>
+			{props.children}
+		</FancyBorder>
+	);
+}
+
+class SignUpDialog extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSignUp = this.handleSignUp.bind(this);
+		this.state = { login: '' };
+	}
+
+	render() {
+		return (
+			<Dialog
+				title="Test program"
+				message="How can we call you?">
+				<input 
+					value={this.state.login}
+					onChange={this.handleChange}
+				/>
+				<button
+					onClick={this.handleSignUp}>
+					Sign me up
+				</button>
+				</Dialog>
+		);
+	}
+
+	handleChange(event) {
+		this.setState({login: event.target.value});
+	}
+
+	handleSignUp() {
+		alert(`Welcome to the program, ${this.state.login}`);
+	}
+}
+
+const root14 = ReactDOM.createRoot(document.getElementById('root14'));
+root14.render(<SignUpDialog/>);
+
