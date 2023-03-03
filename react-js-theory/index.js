@@ -338,7 +338,7 @@ class NameForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleChange(event) {
-		this.setState({value: event.target.value});
+		this.setState({ value: event.target.value });
 	}
 	handleSubmit(event) {
 		alert('Sent name: ' + this.state.value);
@@ -380,7 +380,7 @@ class EssayForm extends React.Component {
 	}
 
 	handleChange(event) {
-		this.setState({value: event.target.value});
+		this.setState({ value: event.target.value });
 	}
 
 	handleSubmit(event) {
@@ -395,7 +395,7 @@ class EssayForm extends React.Component {
 					Essay:
 					<textarea value={this.state.value} onChange={this.handleChange} />
 				</label>
-				<input type='submit' value='Send'/>
+				<input type='submit' value='Send' />
 			</form>
 		);
 	}
@@ -415,20 +415,20 @@ class FlavorForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: 'coconut' };
-		
+
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleChange(event) {
-		this.setState({value: event.target.value});
+		this.setState({ value: event.target.value });
 	}
 
 	handleSubmit(event) {
 		alert('Your favourite flavour is: ' + this.state.value);
 		event.preventDefault();
 	}
-	
+
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit}>
@@ -443,7 +443,7 @@ class FlavorForm extends React.Component {
 						<option value="lime">Lime</option>
 					</select>
 				</label>
-				<input type="submit" value="Send"/>
+				<input type="submit" value="Send" />
 			</form>
 		);
 	}
@@ -485,8 +485,8 @@ class Reservation extends React.Component {
 		return (
 			<form>
 				<label>
-					Will go: 
-					<input 
+					Will go:
+					<input
 						name='isGoing'
 						type='checkbox'
 						checked={this.state.isGoing}
@@ -495,7 +495,7 @@ class Reservation extends React.Component {
 				</label>
 				<br />
 				<label>
-					Amount of guests: 
+					Amount of guests:
 					<input
 						name='numberOfGuests'
 						type='number'
@@ -503,7 +503,7 @@ class Reservation extends React.Component {
 						onChange={this.handleInputChange}
 					/>
 				</label>
-					
+
 			</form>
 		);
 	}
@@ -511,3 +511,44 @@ class Reservation extends React.Component {
 
 const root11 = ReactDOM.createRoot(document.getElementById('root11'));
 root11.render(<Reservation />);
+
+
+
+
+
+
+
+function BoilingVerdict(props) {
+	if (props.celsius >= 100) {
+		return <p>Water will boil</p>
+	}
+	return <p>Water will not boil</p>
+}
+
+class Calculator extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleChange = this.handleChange.bind(this);
+		this.state = { temperature: '' };
+	}
+
+	handleChange(event) {
+		this.setState({ temperature: event.target.value });
+	}
+
+	render() {
+		return (
+			<fieldset>
+				<legend>Write temperature in celsius degrees</legend>
+				<input
+					value={temperature}
+					onChange={this.handleChange}
+				/>
+				<BoilingVerdict celsius={parseFloat(temperature)} />
+			</fieldset>
+		);
+	}
+}
+
+const root12 = ReactDOM.createRoot(document.getElementById('root12'));
+root12.render(<Calculator/>);
