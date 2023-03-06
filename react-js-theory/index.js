@@ -800,6 +800,59 @@ root14.render(<SignUpDialog />);
 
 
 
+
+//----------------- props vs state
+class Welcome extends React.Component {
+	render() {
+		return <h1>Hello {this.props.name}</h1>;
+	}
+}
+
+Welcome.defaultProps = {
+	name: "world",
+};
+
+const root15 = ReactDOM.createRoot(document.getElementById('root15'));
+root15.render(<Welcome />);
+
+
+class Button extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			count: 0,
+		};
+	}
+
+	updateCount() {
+		this.setState((prevState, props) => {
+			return { count: prevState.count + 1 }
+		});
+	}
+
+	render() {
+		return (<button
+			onClick={() => this.updateCount()}
+		>
+			Clicked {this.state.count} times
+		</button>);
+	}
+}
+
+const root16 = ReactDOM.createRoot(document.getElementById('root16'));
+root16.render(<Button />);
+
+//-----------------
+
+
+
+
+
+
+
+
+
+
 class ProductCategoryRow extends React.Component {
 	render() {
 		const category = this.props.category;
@@ -925,73 +978,15 @@ class FilterableProductTable extends React.Component {
 	}
 }
 
+
 const PRODUCTS = [
-	{ category: 'Sporting Goods', price: '$49.99', stocked: false, name: 'Football ball' },
-	{ category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball ball' },
-	{ category: 'Sporting Goods', price: '$29.99', stocked: true, name: 'Basketball ball' },
-	{ category: 'Electronics', price: '$99.99', stocked: true, name: 'iPad Air 4' },
-	{ category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 13' },
-	{ category: 'Electronics', price: '$199.99', stocked: true, name: 'Pixel 5a' },
-	{ category: 'Clothing', price: '$19.99', stocked: true, name: 'T-shirt U.S.Polo' },
-	{ category: 'Clothing', price: '$39.99', stocked: false, name: 'Jeans U.S.Polo' }
+	{ category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
+	{ category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball' },
+	{ category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball' },
+	{ category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch' },
+	{ category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5' },
+	{ category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' }
 ];
 
-const root15 = ReactDOM.createRoot(document.getElementById('root15'));
-root15.render(<FilterableProductsTable products={PRODUCTS} />);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class Welcome extends React.Component {
-	render() {
-		return <h1>Hello {this.props.name}</h1>;
-	}
-}
-
-Welcome.defaultProps = {
-	name: "world",
-};
-
-const root16 = ReactDOM.createRoot(document.getElementById('root16'));
-root16.render(<Welcome />);
-
-
-class Button extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			count: 0,
-		};
-	}
-
-	updateCount() {
-		this.setState((prevState, props) => {
-			return { count: prevState.count + 1 }
-		});
-	}
-
-	render() {
-		return (<button
-			onClick={() => this.updateCount()}
-		>
-			Clicked {this.state.count} times
-		</button>);
-	}
-}
-
 const root17 = ReactDOM.createRoot(document.getElementById('root17'));
-root17.render(<Button/>);
+root17.render(<FilterableProductTable products={PRODUCTS} />);
