@@ -687,7 +687,7 @@ root12.render(<Calculator />);
 // 			left={<Contacts />}
 // 			right={<Chat/>}
 // 		/>
-		
+
 // 	);
 // }
 
@@ -769,7 +769,7 @@ class SignUpDialog extends React.Component {
 			<Dialog
 				title="Test program"
 				message="How can we call you?">
-				<input 
+				<input
 					value={this.state.login}
 					onChange={this.handleChange}
 				/>
@@ -777,12 +777,12 @@ class SignUpDialog extends React.Component {
 					onClick={this.handleSignUp}>
 					Sign me up
 				</button>
-				</Dialog>
+			</Dialog>
 		);
 	}
 
 	handleChange(event) {
-		this.setState({login: event.target.value});
+		this.setState({ login: event.target.value });
 	}
 
 	handleSignUp() {
@@ -791,7 +791,7 @@ class SignUpDialog extends React.Component {
 }
 
 const root14 = ReactDOM.createRoot(document.getElementById('root14'));
-root14.render(<SignUpDialog/>);
+root14.render(<SignUpDialog />);
 
 
 
@@ -818,7 +818,7 @@ class ProductRow extends React.Component {
 			<span style={{ color: 'red' }}>
 				{product.name}
 			</span>;
-		
+
 		return (
 			<tr>
 				<td>{name}</td>
@@ -828,9 +828,66 @@ class ProductRow extends React.Component {
 	}
 }
 
+class ProductTable extends React.Component {
+	render() {
+		const rows = [];
+		let lastCategory = null;
 
+		this.props.products.forEach((product) => {
+			if (product.category !== lastCategory) {
+				rows.push(<ProductCategoryRow category={product.category} key={product.category} />);
+			}
+			rows.push(<ProductRow product={product} key={product.name} />);
+			lastCategory = product.category;
+		});
+		return (
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>{rows}</tbody>
+			</table>
+		);
+	}
+}
 
+class SearchBar extends React.Component {
+	render() {
+		return (
+			<form>
+				<input type='text' placeholder='Search...' />
+				<p>
+					<input type='checkbox' />
+					{' '}
+					Only show product in stock
+				</p>
+			</form>
+		);
+	}
+}
 
+class FilterableProductsTable extends React.Component {
+	render() {
+		return (
+			<div>
+				<SearchBar />
+				<ProductTable products={this.props.products} />
+			</div>
+		);
+	}
+}
+
+const PRODUCTS = [
+	{ category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
+	{ category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball' },
+	{ category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball' },
+	{ category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch' },
+	{ category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5' },
+	{ category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' }
+];
 
 const root15 = ReactDOM.createRoot(document.getElementById('root15'));
 root15.render(<FilterableProductsTable products={PRODUCTS} />);
