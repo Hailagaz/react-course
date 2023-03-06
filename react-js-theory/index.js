@@ -793,3 +793,19 @@ class SignUpDialog extends React.Component {
 const root14 = ReactDOM.createRoot(document.getElementById('root14'));
 root14.render(<SignUpDialog/>);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const root15 = ReactDOM.createRoot(document.getElementById('root15'));
+root15.render(<FilterableProductsTable products={PRODUCTS} />);
